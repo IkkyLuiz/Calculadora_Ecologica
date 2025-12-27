@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoCalc - Calculadora de Emissões de CO₂</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>🌍 EcoCalc</h1>
+            <p>Calculadora de Emissões e Compensação Ambiental</p>
+        </header>
+
+        <main class="calculator-card">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="route-select">📍 Escolha uma rota pronta</label>
+                    <select id="route-select">
+                        <option value="">-- Selecionar rota brasileira --</option>
+                        <optgroup label="Sudeste">
+                            <option value="430">São Paulo ↔ Rio de Janeiro (430 km)</option>
+                            <option value="580">São Paulo ↔ Belo Horizonte (580 km)</option>
+                            <option value="440">Rio de Janeiro ↔ Belo Horizonte (440 km)</option>
+                        </optgroup>
+                        <optgroup label="Sul">
+                            <option value="310">Curitiba ↔ Florianópolis (310 km)</option>
+                            <option value="710">Curitiba ↔ Porto Alegre (710 km)</option>
+                        </optgroup>
+                        <optgroup label="Outros">
+                            <option value="210">Brasília ↔ Goiânia (210 km)</option>
+                            <option value="810">Salvador ↔ Recife (810 km)</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="distance-input">🛣️ Distância personalizada (km)</label>
+                    <input type="number" id="distance-input" placeholder="Ex: 100">
+                </div>
+
+                <div class="input-group">
+                    <label for="transport-select">🚗 Transporte Base</label>
+                    <select id="transport-select">
+                        <option value="carro">Carro (Padrão)</option>
+                        <option value="onibus">Ônibus</option>
+                        <option value="caminhao">Caminhão</option>
+                        <option value="bicicleta">Bicicleta</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn-calc" id="btn-calculate">Calcular Impacto</button>
+        </main>
+
+        <div id="results">
+            <div class="calculator-card">
+                <div class="results-header">
+                    <h3>📊 Resultados da Rota</h3>
+                    <p id="dist-label"></p>
+                </div>
+                <div id="comparison-list" class="comparison-grid"></div>
+                
+                <div class="compensation-card">
+                    <h4 style="margin-bottom: 15px; color: var(--primary-dark);">🌱 Compensação de Carbono (Ref: Carro)</h4>
+                    <div class="credit-details">
+                        <div class="credit-stat">
+                            <small>Créditos</small>
+                            <p id="credit-count">0</p>
+                        </div>
+                        <div class="credit-stat">
+                            <small>Custo Est.</small>
+                            <p id="credit-cost">R$ 0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>Luiz Café © 2025 EcoCalc</footer>
+    </div>
+
+    <script src="js/calculator.js"></script>
+</body>
+</html>
